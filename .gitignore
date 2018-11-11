@@ -3,3 +3,8 @@ ENV.py
 .idea/
 venv/
 *.pyc
+private/
+_cache/
+/django_sphinx_cms_package
+public/docs/
+TODO.rst
