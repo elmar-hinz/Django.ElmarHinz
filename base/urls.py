@@ -1,13 +1,14 @@
+import django_challenges_adapter.urls
 import django_education_certificates.urls
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, re_path, include
-from django.views.static import serve
+from django.urls import path, include
 
 import base.views
 
 urlpatterns = [path('admin/', admin.site.urls),
+               path('challenges/', include(django_challenges_adapter.urls)),
                path('', base.views.index, name='index'),
                path('certificates/',
                     include(django_education_certificates.urls)),

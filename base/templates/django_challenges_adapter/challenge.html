@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ challenge.name }}{% endblock title %}
+
+{% block main %}
+    <h1 class="jumbotron"> {{ challenge.name }} </h1>
+    <div class="container">
+        <h2>Description</h2>
+        <pre> {{ challenge.doc | safe}} </pre>
+        <h3>Sample</h3>
+        <pre> {{ challenge.sample | safe}} </pre>
+        <h3>Expectation</h3>
+        <pre> {{ challenge.expect | safe}} </pre>
+    </div>
+{% endblock main %}

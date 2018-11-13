@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Challenges{% endblock title %}
+
+{% block main %}
+    <div class="container">
+        {% for directory in  directories %}
+            <h2>{{ directory.name }}</h2>
+            {% for directory2 in  directory.directories %}
+                <h3>{{ directory2.name | upper }}</h3>
+                <ul>
+                    {% for directory3 in directory2.directories %}
+                        <li><a href="{{ directory3.url }}" >{{ directory3.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock main %}

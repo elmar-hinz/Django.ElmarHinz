@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'base',
     'django_education_certificates',
     'django_sphinx_cms',
+    'django_challenges_adapter',
 ]
 
 MIDDLEWARE = [

@@ -9,3 +9,7 @@ _cache/
 /public/
 /django_sphinx_cms_package
 /django_education_certificates_package
+Django.ChallengesAdapter
+Django.SphinxCMS
+Django.EducationCertificates
+
