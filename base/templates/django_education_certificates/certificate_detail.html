@@ -12,7 +12,13 @@
     <div class="container">
         <h2>About this Course</h2>
         {% if certificate.description %}
-            <div class="certificate-description">{{ certificate.description | safe }}</div>
+            <div class="certificate-description">{{ certificate.description | safe }}
+                {% if certificate.url_to_course %}
+                    <p><a href="{{ certificate.url_to_course }}">(Quote from the description of the course.)</a></p>
+                {% else %}
+                    <p>(Quote from description of the course.)</p>
+                {% endif %}
+            </div>
         {% endif %}
         {% if certificate.teachers %}
             <p><b>Instructors</b>: {{ certificate.teachers }}</p>
