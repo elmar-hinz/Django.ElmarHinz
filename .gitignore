@@ -1,12 +1,11 @@
+TODO.rst
 db.sqlite3
 ENV.py
 .idea/
 venv/
 *.pyc
-private/
 _cache/
+/private/
+/public/
 /django_sphinx_cms_package
 /django_education_certificates_package
-public/docs/
-public/media/
-TODO.rst
