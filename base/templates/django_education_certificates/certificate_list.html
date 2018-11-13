@@ -13,7 +13,7 @@
                     <li>
                         <h3>{{ certificate.name }}</h3>
                         <a href="{{ certificate.id }}">
-                            <p class="teaser-text"> {{ certificate.description | truncatewords:50 }} </p>
+                            <p class="teaser-text"> {{ certificate.description |safe| truncatewords:35 }} </p>
                         </a>
                     </li>
                 {% endfor %}
