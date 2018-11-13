@@ -6,5 +6,7 @@ venv/
 private/
 _cache/
 /django_sphinx_cms_package
+/django_education_certificates_package
 public/docs/
+public/media/
 TODO.rst

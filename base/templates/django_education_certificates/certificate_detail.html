@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ certificate.name }}{% endblock title %}
+
+{% block main %}
+    <h1 class="jumbotron">{{ certificate.name }}</h1>
+    {% if certificate.file %}
+        <div class="certificate-container container"><a href="{{ certificate.url_to_certificate }}">
+            <img class="certificate-image" src="/media/{{ certificate.file }}" alt="{{ certificate.name }}"/>
+        </a></div>
+    {% endif %}
+    <div class="container">
+        {% if certificate.description %}
+            <div class="certificate-description">{{ certificate.description | safe }}</div>
+        {% endif %}
+        {% if certificate.teachers %}
+            <p><b>Instructors</b>: {{ certificate.teachers }}</p>
+        {% endif %}
+        {% if certificate.school and certificate.provider %}
+            <p><b>Institution:</b> {{ certificate.school }} via {{ certificate.provider }}</p>
+        {% elif certificate.school %}
+            <p><b>Institution:</b> {{ certificate.school }}</p>
+        {% elif certificate.provider %}
+            <p><b>Institution:</b> {{ certificate.provider }}</p>
+        {% endif %}
+        {% if certificate.date_of_earning %}
+            <p><em>{{ certificate.date_of_earning }}
+                {% if certificate.date_of_expiration %}
+                    < class="expires"> (expires: {{ certificate.date_of_expiration }})</span>
+                {% endif %}</em>
+            </p>
+        {% endif %}
+        {% if certificate.url_to_course or certificate.url_to_certificate %}
+            <ul>
+                {% if certificate.url_to_course %}
+                    <li><a href="{{ certificate.url_to_course }}">Go to course</a></li>
+                {% endif %}
+                {% if certificate.url_to_certificate %}
+                    <li><a href="{{ certificate.url_to_certificate }}">Go to certificate</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock main %}

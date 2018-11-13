@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Certificates{% endblock title %}
+
+{% block main %}
+    <h1 class="jumbotron">Certificates</h1>
+    <div class="container">
+        {% for catetogory in categories %}
+            <h2>{{ catetogory.name }}</h2>
+            <p>{{ catetogory.description }}</p>
+            <ul>
+                {% for certificate in catetogory.certificates %}
+                    <li>
+                        <h3>{{ certificate.name }}</h3>
+                        <a href="{{ certificate.id }}">
+                            <p class="teaser-text"> {{ certificate.description | truncatewords:50 }} </p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock main %}
+

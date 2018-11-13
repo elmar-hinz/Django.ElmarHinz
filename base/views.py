@@ -10,7 +10,7 @@ def index(request):
 
 def site(request, name):
     try:
-        return render(request, 'base/' + name)
+        return render(request, 'base/' + name + '.html')
     except TemplateDoesNotExist:
         raise Http404("Page does not exist")
 
