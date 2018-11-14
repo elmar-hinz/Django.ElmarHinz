@@ -3,13 +3,67 @@
 {% block title %}Homepage of Elmar Hinz{% endblock title %}
 
 {% block main %}
-    <div class="container">
+    <div class="jumbotron">
         <h1>Elmar Hinz</h1>
+        <hr/>
+        <dl>
+            <dt>Future:</dt>
+            <dd>Datascience and Bioinformatics</dd>
+            <dt>Present:</dt>
+            <dd>IT Consultancy and Development</dd>
+            <dt>Past:</dt>
+            <dd>Physician</dd>
+        </dl>
+    </div>
+    <div class="container">
+
+        <h2>Programming languages</h2>
+        <h3>Primary programming languages</h3>
         <ul>
-            <li><a href="/challenges/">Bioinformatic Challenges</a></li>
-            <li><a href="{% url 'certificates:list' %}">Certificates</a></li>
-            <li><a href="/docs/PythonBlog/index.html">Python Blog</a></li>
-            <li><a href="/docs/TYPO3/index.html">TYPO3 Blog</a></li>
+            <li>Python</li>
+            <li>PHP</li>
+            <li>Java</li>
+        </ul>
+        <h3>Secondary programming languages</h3>
+        <ul>
+            <li>R Programming</li>
+            <li>Ruby</li>
+            <li>Javascript</li>
+            <li>C++</li>
+            <li>Perl</li>
+        </ul>
+        <h3>Tertiary programming languages</h3>
+        <ul>
+            <li>Typescript</li>
+            <li>CoffeeScript</li>
+            <li>Groovey</li>
+            <li>C</li>
+            <li>vimscript</li>
+            <li>Bash</li>
+        </ul>
+        <h2>Other languages</h2>
+        <h3>Markup languages</h3>
+        <ul>
+            <li>HTML</li>
+            <li>XML</li>
+            <li>ResturcturedText</li>
+            <li>Markdown</li>
+            <li>LaTeX</li>
+        </ul>
+        <h3>Other</h3>
+        <ul>
+            <li>TypoScript</li>
+            <li>CSS</li>
+            <li>SASS</li>
+            <li>Regular expressions</li>
+            <li>XSL, XSLT, XSL-FO, XPath</li>
+        </ul>
+        <h2>Frameworks</h2>
+        <ul>
+            <li>Laravel: state-of-the-art</li>
+            <li>TYPO3: most experience</li>
+            <li>Rails: mentor at Coursera</li>
+            <li>Django: my personal choice</li>
         </ul>
     </div>
 {% endblock main %}
