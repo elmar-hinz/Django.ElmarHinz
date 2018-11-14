@@ -3,7 +3,19 @@
 {% block title %}{{ certificate.name }}{% endblock title %}
 
 {% block main %}
-    <h1 class="jumbotron">{{ certificate.name }}</h1>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{{ certificate.name }}</h1>
+            <hr/>
+            {% if certificate.school %}
+                <p>{{ certificate.school }}</p>
+            {% elif certificate.provider %}
+                <p>{{ certificate.provider }}</p>
+            {% elif certificate.teachers %}
+                <p>{{ certificate.teachers }}</p>
+            {% endif %}
+        </div>
+    </div>
     {% if certificate.file %}
         <div class="certificate-container container"><a href="{{ certificate.url_to_certificate }}">
             <img class="certificate-image" src="/media/{{ certificate.file }}" alt="{{ certificate.name }}"/>

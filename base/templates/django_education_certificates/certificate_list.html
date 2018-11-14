@@ -3,7 +3,11 @@
 {% block title %}Certificates{% endblock title %}
 
 {% block main %}
-    <h1 class="jumbotron">Certificates</h1>
+    <div class="jumbotron"><div class="container">
+        <h1>Certificates</h1>
+        <hr/>
+        <p>Learning is living</p>
+    </div></div>
     <div class="container">
         {% for catetogory in categories %}
             <h2>{{ catetogory.name }}</h2>
