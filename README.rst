@@ -14,6 +14,10 @@ High quality for certificates::
 
     gs -sDEVICE=jpeg -dJPEGQ100 -r300 -odocument.jpg document.pdf
 
+Zip directory
+.............
+
+zip -r myarch.zip mydir
 
 Install and update my blogs
 ---------------------------

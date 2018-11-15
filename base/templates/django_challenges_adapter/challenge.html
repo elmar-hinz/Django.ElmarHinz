@@ -3,17 +3,43 @@
 {% block title %}{{ challenge.name }}{% endblock title %}
 
 {% block main %}
-    <div class="jumbotron"><div class="container">
-        <h1 class="">{{ challenge.name }}</h1>
-        <hr/>
-        <p>Run it right here!</p>
-    </div></div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="">{{ challenge.name }}</h1>
+            <hr/>
+            <p>Run it right here!</p>
+        </div>
+    </div>
     <div class="container">
         <h2>Description</h2>
-        <pre> {{ challenge.doc | safe}} </pre>
+        <pre> {{ challenge.doc | safe }} </pre>
         <h3>Sample</h3>
-        <pre> {{ challenge.sample | safe}} </pre>
+        <pre> {{ challenge.sample | safe }} </pre>
         <h3>Expectation</h3>
-        <pre> {{ challenge.expect | safe}} </pre>
+        <pre> {{ challenge.expect | safe }} </pre>
+        <p>
+            <button type="button" class="js-run-sample btn btn-primary">run sample</button>
+        </p>
+    </div>
+    <div class="container">
+        <pre class="js-output"></pre>
     </div>
 {% endblock main %}
+
+{% block javascript %}
+    <script>
+        $(".js-run-sample").click(function () {
+            $.ajax({
+                    url: '/challenges/ajax',
+                    data: {
+                        path: '{{ challenge.path }}'
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $(".js-output").html(data.result);
+                        $(".js-output").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                    }
+                });
+        });
+    </script>
+{% endblock %}
