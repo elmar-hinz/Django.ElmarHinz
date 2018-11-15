@@ -18,28 +18,69 @@
         <h3>Expectation</h3>
         <pre> {{ challenge.expect | safe }} </pre>
         <p>
-            <button type="button" class="js-run-sample btn btn-primary">run sample</button>
+            <button type="button" class="js-run-tiny btn btn-primary">run tiny sample</button>
+            {% if challenge.has_sample_file %}
+                <button type="button" class="js-run-big btn btn-primary">run big sample</button>
+            {% endif %}
         </p>
     </div>
     <div class="container">
-        <pre class="js-output"></pre>
+        <dl>
+            <dt>Input: <span class="js-input-length"></span></dt>
+            <dd>
+                <pre class="js-input"></pre>
+            </dd>
+            <dt>Output:</dt>
+            <dd>
+                <pre class="js-output"> </pre>
+            </dd>
+        </dl>
     </div>
 {% endblock main %}
 
 {% block javascript %}
     <script>
-        $(".js-run-sample").click(function () {
+        $(".js-run-tiny").click(function () {
             $.ajax({
-                    url: '/challenges/ajax',
-                    data: {
-                        path: '{{ challenge.path }}'
-                    },
-                    dataType: 'json',
-                    success: function (data) {
-                        $(".js-output").html(data.result);
-                        $(".js-output").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                url: '/challenges/ajax',
+                data: {
+                    path: '{{ challenge.path }}',
+                    type: 'tiny',
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if(data.cropped) {
+                        $(".js-input-length").html(data.length + " characters cropped to " + data.cropped_to);
+                    } else {
+                        $(".js-input-length").html('')
                     }
-                });
+                    $(".js-input").html(data.input);
+                    $(".js-input").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                    $(".js-output").html(data.output);
+                    $(".js-output").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                }
+            });
+        });
+        $(".js-run-big").click(function () {
+            $.ajax({
+                url: '/challenges/ajax',
+                data: {
+                    path: '{{ challenge.path }}',
+                    type: 'big',
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if(data.cropped) {
+                        $(".js-input-length").html(data.length + " characters cropped to " + data.cropped_to);
+                    } else {
+                        $(".js-input-length").html('')
+                    }
+                    $(".js-input").html(data.input);
+                    $(".js-input").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                    $(".js-output").html(data.output);
+                    $(".js-output").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                }
+            });
         });
     </script>
 {% endblock %}

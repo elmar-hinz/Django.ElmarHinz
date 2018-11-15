@@ -41,4 +41,6 @@ Install and update my blogs
 Install and update my python packages
 -------------------------------------
 
+pip uninstall django_challenges_adapter
+pip install git+https://github.com/elmar-hinz/Django.ChallengesAdapter.git
 
